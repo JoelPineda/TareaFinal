@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Escuela2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Asignaturas">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="int" Nullable="false" />
+    <Property Name="Nombre_Materia" Type="varchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="Estudiante">
+    <Key>
+      <PropertyRef Name="Matricula" />
+    </Key>
+    <Property Name="Matricula" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Apellido" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Edad" Type="int" Nullable="false" />
+    <Property Name="Genero" Type="varchar" MaxLength="20" />
+    <Property Name="Fecha_Nacimiento" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="Nacionalidad" Type="varchar" MaxLength="50" />
+    <Property Name="Telefono" Type="varchar" MaxLength="50" />
+    <Property Name="E_mail" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'Escuela2.dbo.Materia_Estudiante' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="Materia_Estudiante">
+          <Property Name="Matricula_Estu" Type="int" />
+          <Property Name="Codigo_Materia" Type="int" />
+        </EntityType>-->
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'Escuela2.dbo.Materia_Profesor' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="Materia_Profesor">
+          <Property Name="Id_Maestro" Type="int" />
+          <Property Name="Codigo_Materia" Type="int" />
+        </EntityType>-->
+  <EntityType Name="Profesores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Apellido" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Edad" Type="int" Nullable="false" />
+    <Property Name="Cedula" Type="int" Nullable="false" />
+    <Property Name="Genero" Type="varchar" MaxLength="20" />
+    <Property Name="Fecha_Nacimiento" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="Nacionalidad" Type="varchar" MaxLength="50" />
+    <Property Name="Telefono" Type="varchar" MaxLength="50" />
+    <Property Name="E_mail" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'Escuela2.dbo.Materia_Estudiante', pero no se encuentra la tabla.
+        <Association Name="fk_estu" />-->
+  <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'Escuela2.dbo.Materia_Estudiante', pero no se encuentra la tabla.
+        <Association Name="fk_mate" />-->
+  <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'Escuela2.dbo.Materia_Profesor', pero no se encuentra la tabla.
+        <Association Name="fk_materia" />-->
+  <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'Escuela2.dbo.Materia_Profesor', pero no se encuentra la tabla.
+        <Association Name="fk_profe" />-->
+  <EntityContainer Name="Escuela2ModelStoreContainer">
+    <EntitySet Name="Asignaturas" EntityType="Self.Asignaturas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estudiante" EntityType="Self.Estudiante" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profesores" EntityType="Self.Profesores" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

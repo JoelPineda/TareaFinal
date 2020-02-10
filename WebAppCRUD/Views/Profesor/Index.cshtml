@@ -1,0 +1,70 @@
+﻿@model List<WebAppCRUD.Models.ViewModel.ListTablaViewModel>
+@{
+    ViewBag.Title = "Mis datos";
+}
+
+
+<style>
+    th {
+        background: #1861ac;
+        color: #ffffff;
+    }
+
+    tr {
+        background: #8d6986;
+        color: #000000;
+    }
+</style>
+<h1>Registro de Profesores UNAPEC</h1>
+<div class="container" style="margin-top:22px">
+    <div style="text-align:right;">
+        <a href="~/Profesor/Nuevo_Maestro" class="btn btn-primary" style="margin-top:8px; margin-bottom:20px; padding:10px">Nuevo Maestro</a>
+    </div>
+
+    <div class="row col">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Matricula</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Edad</th>
+                        <th>Genero</th>
+                        <th>Fecha</th>
+                        <th>Nacionalidad</th>
+                        <th>Telefono</th>
+                        <th>Cedula</th>
+                        <th>Email</th>
+                        <th>Acciones</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @foreach (var oElemento in Model)
+                    {
+                        <tr>
+                            <td>@oElemento.Matricula</td>
+                            <td>@oElemento.Nombre</td>
+                            <td>@oElemento.Apellido</td>
+                            <td>@oElemento.Edad</td>
+                            <td>@oElemento.Genero</td>
+                            <td>@oElemento.Fecha_Nacimiento</td>
+                            <td>@oElemento.Nacionalidad</td>
+                            <td>@oElemento.Telefono</td>
+                            <td>@oElemento.Cedula</td>
+                            <td>@oElemento.Email</td>
+                            <td>
+                                <a class="btn btn-default" href="~/Profesor/Editar/@oElemento.Matricula">Editar</a>
+                                <a class="btn btn-danger" href="~/Profesor/Eliminar/@oElemento.Matricula">Eliminar</a>
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
